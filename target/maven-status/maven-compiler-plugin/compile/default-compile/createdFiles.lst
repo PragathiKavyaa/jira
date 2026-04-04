@@ -1,0 +1,12 @@
+com\example\minijira\controller\ProjectController.class
+com\example\minijira\service\ProjectService.class
+com\example\minijira\controller\UserController.class
+com\example\minijira\repository\IssueRepository.class
+com\example\minijira\service\IssueService.class
+com\example\minijira\model\Issue.class
+com\example\minijira\repository\ProjectRepository.class
+com\example\minijira\repository\UserRepository.class
+com\example\minijira\controller\IssueController.class
+com\example\minijira\MiniJiraApplication.class
+com\example\minijira\model\Project.class
+com\example\minijira\model\User.class

@@ -1,0 +1,107 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* PAGE BACKGROUND */
+
+body{
+background:#e6e6e6;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#172b4d;
+padding:15px 40px;
+}
+
+/* LOGO */
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:16px;
+font-weight:500;
+}
+
+.nav-links a:hover{
+color:#00c2ff;
+}
+
+/* PAGE CENTER AREA */
+
+.page{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:calc(100vh - 70px);
+}
+
+/* LOGIN CONTAINER */
+
+.container{
+width:420px;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+/* TITLE */
+
+.container h1{
+margin-bottom:25px;
+font-size:28px;
+color:#333;
+}
+
+/* INPUT */
+
+.container input{
+width:100%;
+padding:14px;
+margin-bottom:18px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:15px;
+}
+
+/* BUTTON */
+
+.container button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:6px;
+background:#1656c1;
+color:white;
+font-size:17px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.container button:hover{
+background:#1248a5;
+}

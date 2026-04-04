@@ -1,0 +1,12 @@
+D:\vts project\jira\src\main\java\com\example\minijira\controller\ProjectController.java
+D:\vts project\jira\src\main\java\com\example\minijira\model\User.java
+D:\vts project\jira\src\main\java\com\example\minijira\service\ProjectService.java
+D:\vts project\jira\src\main\java\com\example\minijira\repository\UserRepository.java
+D:\vts project\jira\src\main\java\com\example\minijira\repository\ProjectRepository.java
+D:\vts project\jira\src\main\java\com\example\minijira\model\Project.java
+D:\vts project\jira\src\main\java\com\example\minijira\repository\IssueRepository.java
+D:\vts project\jira\src\main\java\com\example\minijira\MiniJiraApplication.java
+D:\vts project\jira\src\main\java\com\example\minijira\model\Issue.java
+D:\vts project\jira\src\main\java\com\example\minijira\service\IssueService.java
+D:\vts project\jira\src\main\java\com\example\minijira\controller\UserController.java
+D:\vts project\jira\src\main\java\com\example\minijira\controller\IssueController.java

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Create Project / Issue</title>
+    <link rel="stylesheet" href="/css/create.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2 class="logo">MiniJira</h2>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/create.html">Raise Issue</a>            
+            <a href="/board.html">Status</a>            
+            <a href="/login.html">Login</a>
+        </div>
+    </div>
+
+    <!-- CREATE PROJECT -->
+
+    <section class="create-section">
+
+        <h2>Create Project</h2>
+
+        <form id="projectForm">
+
+            <input type="text" id="name" placeholder="Project Name" required>
+
+            <input type="text" id="lead" placeholder="Project Lead" required>
+
+            <input type="text" id="team" placeholder="Team Members" required>
+
+            <select id="status">
+                <option>Active</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+            </select>
+
+            <textarea id="description" placeholder="Project Description"></textarea>
+
+            <button type="submit">Create Project</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CREATE ISSUE -->
+
+    <section class="create-section">
+
+        <h2>Create Issue</h2>
+
+        <form id="issueForm">
+
+            <input type="text" id="title" placeholder="Issue Title" required>
+
+            <textarea id="issueDescription" placeholder="Issue Description"></textarea>
+
+            <select id="issueStatus">
+                <option value="TODO">To Do</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="DONE">Done</option>
+            </select>
+
+            <button type="submit">Create Issue</button>
+
+        </form>
+
+    </section>
+
+    <script src="/js/createProject.js"></script>
+    <script src="/js/createIssue.js"></script>
+
+</body>
+
+</html>

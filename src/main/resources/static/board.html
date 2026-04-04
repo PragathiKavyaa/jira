@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Board</title>
+    <link rel="stylesheet" href="/css/board.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2 class="logo">MiniJira</h2>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/create.html">Raise Issue</a>
+            <a href="/board.html">Status</a>
+            <a href="/login.html">Login</a>
+        </div>
+    </div>
+
+    <!-- BOARD 1 -->
+
+    <section class="board1">
+
+        <h1>Projects</h1>
+
+        <h1 id="projectTitle1"></h1>
+
+        <!-- <section class="project-info">
+
+            <h2 id="projectName"></h2>
+
+            <p>
+                <strong>Project Description:</strong>
+                <span id="projectDescription"></span>
+            </p>
+
+            <p>
+                <strong>Issue Description:</strong>
+                <span id="issueDescription"></span>
+            </p>
+
+        </section> -->
+
+        <section class="board">
+
+            <div class="column">
+                <h2>To Do</h2>
+                <ul id="todoList"></ul>
+            </div>
+
+            <div class="column">
+                <h2>In Progress</h2>
+                <ul id="progressList"></ul>
+            </div>
+
+            <div class="column">
+                <h2>Assigned</h2>
+                <ul id="assignedList"></ul>
+            </div>
+
+            <div class="column">
+                <h2>Completed</h2>
+                <ul id="completedList"></ul>
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- BOARD 2 -->
+
+    <section class="board2">
+
+        <h1>Issues</h1>
+
+        <h1 id="projectTitle2"></h1>
+
+        <section class="board">
+
+            <div class="column">
+                <h2>To Do</h2>
+                <ul id="todoList2"></ul>
+            </div>
+
+            <div class="column">
+                <h2>In Progress</h2>
+                <ul id="progressList2"></ul>
+            </div>
+
+            <div class="column">
+                <h2>Done</h2>
+                <ul id="doneList2"></ul>
+            </div>
+
+        </section>
+
+    </section>
+
+    <div id="descriptionModal" class="modal show">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+    </div>
+
+</div>
+
+    <script src="/js/board.js"></script>
+
+</body>
+
+</html>

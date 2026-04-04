@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+        <h2 class="logo">MiniJira</h2>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/create.html">Raise Issue</a>
+            <a href="/board.html">Status</a>
+            <a href="/login.html">Login</a>
+        </div>
+    </div>
+
+
+    <!-- PAGE TITLE -->
+
+    <section class="dashboard-header">
+
+        <h1>Company Projects</h1>
+        <p>Select a project to view details</p>
+
+    </section>
+
+
+    <!-- PROJECT LIST -->
+
+    <section class="projects" id="projectContainer">
+
+        <div class="project-card"
+            onclick="showProject('E-Commerce Platform','Rahul Sharma','UI Team, Backend Team, Testing Team','Active')">
+            <h3>E-Commerce Platform</h3>
+            <p>Online shopping system</p>
+        </div>
+
+        <div class="project-card"
+            onclick="showProject('Banking Application','Priya Nair','Security Team, API Team','In Progress')">
+            <h3>Banking Application</h3>
+            <p>Secure banking solution</p>
+        </div>
+
+        <div class="project-card"
+            onclick="showProject('Healthcare Portal','Arjun Kumar','Frontend Team, Database Team','Completed')">
+            <h3>Healthcare Portal</h3>
+            <p>Patient management system</p>
+        </div>
+
+        <div class="project-card"
+            onclick="showProject('Travel Booking System','Sneha Reddy','Mobile Team, Backend Team','Active')">
+            <h3>Travel Booking System</h3>
+            <p>Flight & hotel booking platform</p>
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT DETAILS MODAL -->
+
+    <div id="projectModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2 id="pName"></h2>
+
+            <p><strong>Project Lead:</strong> <span id="pLead"></span></p>
+
+            <p><strong>Team Members:</strong> <span id="pTeam"></span></p>
+
+            <p><strong>Status:</strong> <span id="pStatus"></span></p>
+
+            <div class="modal-buttons">
+                <button onclick="changeStatus()">Change Status</button>
+                <button class="delete-btn" onclick="deleteProject()">Delete Project</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- <section class="board">
+
+        <div class="column">
+            <h2>To Do</h2>
+            <ul id="todoList"></ul>
+        </div>
+
+        <div class="column">
+            <h2>In Progress</h2>
+            <ul id="progressList"></ul>
+        </div>
+
+        <div class="column">
+            <h2>Assigned</h2>
+            <ul id="assignedList"></ul>
+        </div>
+
+        <div class="column">
+            <h2>Completed</h2>
+            <ul id="completedList"></ul>
+        </div>
+
+    </section> -->
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>Mini Jira</h3>
+                <p>Simple project tracking system inspired by Jira.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <p>Home</p>
+                <p>Dashboard</p>
+                <p>Raise Issue</p>
+                <p>Login</p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>Email: support@minijira.com</p>
+                <p>Phone: +91 9876543210</p>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Mini Jira Project | Built using HTML, CSS, JS & Spring Boot
+        </p>
+
+    </footer>
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>
