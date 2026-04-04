@@ -1,0 +1,1 @@
+web: java -jar target/mini-jira-advanced-0.0.1.jar
