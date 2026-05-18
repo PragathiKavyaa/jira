@@ -1,4 +1,6 @@
-function login(){
+document.getElementById("loginForm").addEventListener("submit", function(e){
+
+e.preventDefault(); // 🚫 stop page reload
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
@@ -17,20 +19,28 @@ password:password
 })
 
 })
-.then(res => res.text())
+.then(res => {
+
+if(!res.ok){
+    return res.text().then(err => { 
+            throw new Error(err);   // ✅ show real backend message
+        });
+}
+
+return res.json();
+})
 .then(data => {
 
-if(data === "Login Success"){
+localStorage.setItem("username", data.name);
+localStorage.setItem("email", data.email); 
+localStorage.setItem("role", data.role);
 
-alert("Login Successful");
-window.location="dashboard.html";
+window.location.href="/front.html"; // ✅ redirect works
 
-}else{
-
-alert("Invalid Credentials");
-
-}
-
+})
+.catch(error => {
+alert(error.message);
+console.error("Login error:", error);
 });
 
-}
+});

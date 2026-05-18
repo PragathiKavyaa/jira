@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>MiniJira Analytics</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="/css/analytics.css">
+</head>
+
+<body>
+
+<div class="navbar">
+        <h2 class="logo">MiniJira</h2>
+        <div class="nav-links">
+            <a href="/front.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/create.html">Raise Project</a>
+            <a href="/board.html">Status</a>
+            <a href="/analytics.html">Analytics</a>
+            <span id="username"></span>
+            <a href="/index.html">Logout</a>
+        </div>
+    </div>
+
+<div class="container">
+
+<div class="chart-box">
+<h3>Project Status</h3>
+<canvas id="projectChart"></canvas>
+</div>
+
+<div class="chart-box">
+<h3>Issue Status</h3>
+<canvas id="issueChart"></canvas>
+</div>
+
+<div class="chart-box">
+<h3>Issues Per Assignee</h3>
+<canvas id="assigneeChart"></canvas>
+</div>
+
+<div class="chart-box">
+<h3>Projects Per Team</h3>
+<canvas id="teamChart"></canvas>
+</div>
+
+</div>
+
+<script src="/js/analytics.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Details</title>
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="icon" href="data:,">
+</head>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+    <h2 class="logo">MiniJira</h2>
+    <div class="nav-links">
+        <a href="/front.html">Home</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/create.html">Raise Project</a>
+        <a href="/board.html">Status</a>
+        <a href="/analytics.html">Analytics</a>
+        <span id="username"></span>
+        <a href="/index.html">Logout</a>
+    </div>
+</div>
+
+<div class="project-container">
+
+    <!-- LEFT SIDE CONTENT -->
+    <div class="center-panel"> <!-- PROJECT DETAILS -->
+        <div class="left-panel">
+
+            <h2 id="projectName">Project Name</h2>
+
+            <p><b>Description:</b> <span id="description"></span></p>
+
+            <p><b>Project Lead:</b> <span id="lead"></span></p>
+
+            <p><b>Team:</b> <span id="team"></span></p>
+
+            <p>
+                <b>Status:</b>
+                <span id="projectStatus"></span>
+            </p>
+
+            <div class="project-status-buttons">
+                <button onclick="updateProjectStatus('TODO')">TODO</button>
+                <button onclick="updateProjectStatus('IN_PROGRESS')">IN PROGRESS</button>
+                <button onclick="updateProjectStatus('ASSIGNED')">ASSIGNED</button>
+                <button onclick="updateProjectStatus('COMPLETED')">COMPLETED</button>
+            </div>
+
+            <p><b>Stage:</b></p>
+
+            <select id="stageDropdown" onchange="updateStage(this.value)">
+                <option value="PLANNING">Planning</option>
+                <option value="DESIGN">Design</option>
+                <option value="DEVELOPMENT">Development</option>
+                <option value="TESTING">Testing</option>
+                <option value="DEPLOYMENT">Deployment</option>
+            </select>
+
+            <div class="timeline-container">
+                <h3>Sprint Timeline</h3>
+                <div id="timeline"></div>
+            </div>
+
+            <div class="progress-container">
+                <h4>Progress</h4>
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+                <span id="progressText"></span>
+            </div>
+
+            <!-- CREATE ISSUE (INSIDE PROJECT PAGE) -->
+<div class="create-issue-panel">
+
+    <h3>Create Issue</h3>
+
+    <form id="projectIssueForm">
+
+        <input type="text" id="p_title" placeholder="Issue Title" required>
+
+        <textarea id="p_description" placeholder="Issue Description"></textarea>
+
+        <input type="text" id="p_assigner" placeholder="Assigner Name" required>
+
+        <input type="email" id="p_assignerEmail" placeholder="Assigner Email">
+
+        <input type="text" id="p_assignee" placeholder="Assignee Name" required>
+
+        <input type="email" id="p_assigneeEmail" placeholder="Assignee Email">
+
+        <select id="p_status">
+            <option value="TODO">To Do</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="DONE">Done</option>
+        </select>
+
+        <label>Start Date:</label>
+        <input type="date" id="p_startDate">
+
+        <label>End Date:</label>
+        <input type="date" id="p_endDate">
+
+        <button type="submit">Create Issue</button>
+
+    </form>
+
+</div>
+
+        </div>
+
+        <!-- ISSUES SECTION -->
+        <div class="issues-panel">
+            <h3>Issues</h3><br><br>
+            <table id="issueTable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Assigner</th>
+            <th>Assignee</th>
+            <th>Status</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="issueTableBody"></tbody>
+</table>
+
+<div class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+</div>
+        </div>
+
+        <div class="subtask-panel">
+
+            <h3>Sub Tasks</h3>
+
+            <div class="subtask-input">
+
+                <input type="text" id="subtaskTitle" placeholder="Enter sub task">
+
+                <button onclick="addSubTask()">Add</button>
+
+            </div>
+
+            <ul id="subtaskList"></ul>
+
+        </div>
+    </div>
+    <!-- RIGHT SIDE PROJECT LIST -->
+    <div class="right-sidebar">
+        <h3>Stages</h3>
+        <select id="stageFilter" onchange="filterProjects()">
+            <option value="ALL">All Stages</option>
+            <option value="PLANNING">Planning</option>
+            <option value="DESIGN">Design</option>
+            <option value="DEVELOPMENT">Development</option>
+            <option value="TESTING">Testing</option>
+            <option value="DEPLOYMENT">Deployment</option>
+        </select><br><br>
+        <h3>Projects</h3>
+        <ul id="projectList">
+            <!-- Loaded dynamically -->
+        </ul>
+    </div>
+</div>
+<!-- Script -->
+<script src="/js/project.js"></script>
+
+</body>
+
+</html>

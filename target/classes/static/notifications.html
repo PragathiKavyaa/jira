@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniJira Notifications</title>
+
+    <link rel="stylesheet" href="/css/notifications.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo-section">
+            <h2>MiniJira</h2>
+        </div>
+
+        <div class="nav-links">
+            <a href="/front.html">Home</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/board.html">Status</a>
+            <a href="/analytics.html">Analytics</a>
+            <a href="/notifications.html" class="active-link">
+                Notifications
+            </a>
+            <a href="/index.html">Logout</a>
+
+            </div>
+
+    </div>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div>
+            <h1>Notifications Center</h1>
+            <p>Track assignments, approvals, responses and updates</p>
+        </div>
+
+    </section>
+    <!-- TABLE SECTION -->
+
+    <section class="table-section">
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Description</th>
+                        <th>Assigner Details</th>
+                        <th>Status</th>
+                        <th>Stage</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+
+                <tbody id="notificationTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <script src="/js/notifications.js"></script>
+
+</body>
+
+</html>

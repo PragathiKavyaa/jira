@@ -1,5 +1,7 @@
 package com.example.minijira.model;
 
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,9 +19,55 @@ public class Issue {
 
     private String assignee;
 
+    private String assigner;
+
+    private String assignerEmail;
+
+    private String assigneeEmail;
+
+    private LocalDate startDate;
+
+    private LocalDate endDate;
+
     @ManyToOne
     @JoinColumn(name = "project_id")
+    @JsonIgnoreProperties({
+            "issues",
+            "members"
+    })
     private Project project;
+
+    public String getAssignerEmail() {
+        return assignerEmail;
+    }
+
+    public void setAssignerEmail(String assignerEmail) {
+        this.assignerEmail = assignerEmail;
+    }
+
+    public String getAssigneeEmail() {
+        return assigneeEmail;
+    }
+
+    public void setAssigneeEmail(String assigneeEmail) {
+        this.assigneeEmail = assigneeEmail;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
 
     public Long getId() {
         return id;
@@ -67,6 +115,14 @@ public class Issue {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public String getAssigner() {
+        return assigner;
+    }
+
+    public void setAssigner(String assigner) {
+        this.assigner = assigner;
     }
 
     // getters setters

@@ -1,8 +1,13 @@
 package com.example.minijira.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "project")
 public class Project {
 
     @Id
@@ -11,13 +16,22 @@ public class Project {
 
     private String name;
 
+    @Column(name = "project_lead")
+    @JsonProperty("projectLead")
     private String projectLead;
 
+    @Column(name = "team")
     private String team;
 
     private String status;
 
+    private String stage;
+
     private String description;
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Issue> issues;
 
     public Long getId() {
         return id;
@@ -65,6 +79,14 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
     }
 
     // getters and setters

@@ -1,8 +1,10 @@
 package com.example.minijira.controller;
 
+import com.example.minijira.model.Role;
 import com.example.minijira.model.User;
 import com.example.minijira.repository.UserRepository;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,18 +21,40 @@ public class UserController {
 
     @PostMapping("/signup")
     public User signup(@RequestBody User user) {
+
+        if (user.getRole() == null) {
+            user.setRole(Role.USER);
+        } else {
+            user.setRole(Role.valueOf(user.getRole().name().toUpperCase()));
+        }
+
         return repository.save(user);
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
 
-        User existing = repository.findByEmail(user.getEmail());
+        try {
 
-        if (existing != null && existing.getPassword().equals(user.getPassword())) {
-            return "Login Success";
+            System.out.println("ENUM VALUES:");
+            for (Role r : Role.values()) {
+                System.out.println(r);
+            }
+
+            User existing = repository.findByEmail(user.getEmail());
+
+            System.out.println("User Role: " + existing.getRole());
+
+            if (existing != null && existing.getPassword().equals(user.getPassword())) {
+                return ResponseEntity.ok(existing);
+            }
+
+            return ResponseEntity.status(401).body("Invalid Credentials");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Server Error: " + e.getMessage());
         }
 
-        return "Invalid Credentials";
     }
 }

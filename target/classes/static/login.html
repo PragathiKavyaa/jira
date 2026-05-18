@@ -12,8 +12,6 @@
     <h2 class="logo">MiniJira</h2>
     <div class="nav-links">
         <a href="/index.html">Home</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/create.html">Raise Issue</a>
         <a href="/login.html">Login</a>
     </div>
 </div>
@@ -23,15 +21,18 @@
 
         <h1>Login To Your Account</h1>
 
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
+        <form id="loginForm">
+            <input type="role" id="role" placeholder="Role" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
 
-        <button onclick="login()">Login</button>
+            <button type="submit">Login</button>
+        </form>
 
     </div>
 </div>
 
-<script src="/js/login.js"></script>
+<script src="js/login.js"></script>
 
 </body>
 

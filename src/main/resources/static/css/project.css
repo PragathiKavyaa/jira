@@ -1,0 +1,392 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+background:#F4F5F7;   /* Jira background */
+color:#172B4D;        /* Primary text */
+line-height:1.6;
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 50px;
+background:#0747A6;   /* Jira header */
+color:white;
+}
+
+.logo{
+font-size:22px;
+font-weight:600;
+}
+
+.nav-links a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+.nav-links a:hover{
+text-decoration:underline;
+}
+
+/* MAIN LAYOUT */
+
+.project-container{
+display:flex;
+gap:20px;
+padding:25px;
+background:#F4F5F7;
+}
+
+/* LEFT SIDE CONTENT */
+
+.center-panel{
+width:75%;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* PROJECT DETAILS */
+
+.left-panel{
+background:#FFFFFF;
+padding:20px;
+border-radius:10px;
+box-shadow:0 1px 4px rgba(0,0,0,0.1);
+color:#172B4D;
+}
+
+.left-panel h2{
+margin-bottom:10px;
+}
+
+.left-panel p{
+font-size:14px;
+margin:5px 0;
+}
+
+/* WORKFLOW */
+
+.workflow{
+display:flex;
+gap:15px;
+margin-top:10px;
+}
+
+/* WORKFLOW COLUMN */
+
+.stage{
+background:#EBECF0;
+color:#172B4D;
+border-radius:8px;
+padding:12px;
+width:100%;
+min-height:250px;
+overflow-x: auto;
+}
+
+.stage h3{
+text-align:center;
+font-size:14px;
+margin-bottom:10px;
+color:#172b4d;
+}
+
+/* ISSUE CARDS */
+
+.stage ul{
+display:flex;
+flex-direction:row;
+gap:10px;
+list-style:none;
+padding:0;
+margin:0;
+overflow-x:auto;
+flex-wrap:nowrap;
+}
+
+.stage li{
+background:white;
+padding:10px;
+border-radius:6px;
+font-size:13px;
+box-shadow:0 1px 3px rgba(0,0,0,0.2);
+cursor:grab;
+min-width:200px;
+flex-shrink:0;
+}
+
+.stage li:hover{
+transform:scale(1.03);
+}
+
+#stageDropdown{
+    margin-top:8px;
+    padding:6px 10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    background:#fff;
+    cursor:pointer;
+}
+
+.timeline-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#timeline {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+}
+
+.timeline-bar {
+    height: 20px;
+    background: linear-gradient(90deg, #36B37E, #57D9A3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    position: relative;
+}
+
+.timeline-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #172B4D;
+}
+
+.progress-container{
+margin-top:15px;
+}
+
+.progress-bar{
+width:100%;
+height:12px;
+background:#DFE1E6;
+border-radius:10px;
+overflow:hidden;
+}
+
+#progressFill{
+height:100%;
+width:0%;
+background:#36B37E;
+transition:0.3s;
+}
+
+/* ISSUES SECTION */
+
+.issues-panel{
+   display:flex;
+flex-direction:column;
+row-gap:10px;
+background:#FFFFFF;
+padding:20px;
+border-radius:10px;
+box-shadow:0 1px 4px rgba(0,0,0,0.1);
+color:#172B4D;
+}
+
+.issues-panel h3{
+margin-bottom:10px;
+}
+
+.issues-panel ul{
+list-style:none;
+color: black;
+}
+
+#issueList{
+display:flex;
+flex-direction:row;
+gap:12px;
+list-style:none;
+padding:0;
+margin-top:10px;
+overflow-x:auto;
+}
+
+.issues-panel li{
+background:#FFFFFF;
+color:#172B4D;
+padding:10px;
+border-radius:6px;
+min-width:220px;
+flex-shrink:0;
+}
+
+.create-issue-panel {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.create-issue-panel input,
+.create-issue-panel textarea,
+.create-issue-panel select {
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #DFE1E6;
+}
+
+.create-issue-panel button {
+    margin-top: 10px;
+    background: #0052CC;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#issueTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#issueTable th, #issueTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#issueTable th {
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+#issueTable tr:hover {
+    background-color: #f9f9f9;
+}
+
+.pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.subtask-panel{
+background:#FFFFFF;
+padding:20px;
+border-radius:10px;
+box-shadow:0 1px 4px rgba(0,0,0,0.1);
+color:#172B4D;
+margin-top:20px;
+}
+
+.subtask-input{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.subtask-input input{
+flex:1;
+padding:8px;
+border-radius:5px;
+background:#FAFBFC;
+border:1px solid #DFE1E6;
+color:#172B4D;
+}
+
+.subtask-input button{
+padding:8px 15px;
+background:#0052cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.subtask-input input:focus{
+border-color:#0052CC;
+background:white;
+}
+
+.subtask-panel ul{
+list-style:none;
+color: black;
+}
+
+.subtask-panel li{
+background:#f4f5f7;
+padding:10px;
+margin-bottom:8px;
+border-radius:6px;
+}
+
+/* RIGHT PROJECT LIST */
+
+.right-sidebar{
+width:25%;
+background:#FFFFFF;
+padding:20px;
+border-radius:10px;
+box-shadow:0 1px 4px rgba(0,0,0,0.1);
+color:#172B4D;
+height:fit-content;
+}
+
+.right-sidebar h3{
+margin-bottom:10px;
+}
+
+.right-sidebar ul{
+list-style:none;
+}
+
+.right-sidebar li{
+padding:10px;
+margin-bottom:8px;
+background:#f4f5f7;
+border-radius:6px;
+cursor:pointer;
+transition:0.2s;
+color:#172B4D;
+}
+
+.right-sidebar li:hover{
+background:#DFE1E6;
+}
+
+/* DRAG AREA */
+
+.stage.drag-over{
+border:2px dashed #0052cc;
+background:#dfe1e6;
+}
+
+.project-status-buttons button,
+.subtask-input button{
+background:#0052CC;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.project-status-buttons button:hover,
+.subtask-input button:hover{
+background:#0747A6;
+}

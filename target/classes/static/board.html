@@ -11,11 +11,13 @@
     <div class="navbar">
         <h2 class="logo">MiniJira</h2>
         <div class="nav-links">
-            <a href="/index.html">Home</a>
+            <a href="/front.html">Home</a>
             <a href="/dashboard.html">Dashboard</a>
-            <a href="/create.html">Raise Issue</a>
+            <a href="/create.html">Raise Project</a>
             <a href="/board.html">Status</a>
-            <a href="/login.html">Login</a>
+            <a href="/analytics.html">Analytics</a>
+            <span id="username"></span>
+            <a href="/index.html">Logout</a>
         </div>
     </div>
 
@@ -26,22 +28,6 @@
         <h1>Projects</h1>
 
         <h1 id="projectTitle1"></h1>
-
-        <!-- <section class="project-info">
-
-            <h2 id="projectName"></h2>
-
-            <p>
-                <strong>Project Description:</strong>
-                <span id="projectDescription"></span>
-            </p>
-
-            <p>
-                <strong>Issue Description:</strong>
-                <span id="issueDescription"></span>
-            </p>
-
-        </section> -->
 
         <section class="board">
 
@@ -99,15 +85,23 @@
 
     </section>
 
-    <div id="descriptionModal" class="modal show">
+<div id="descriptionModal2" class="modal">
 
-    <div class="modal-content">
+    <div class="modal-content2">
 
         <span class="close" onclick="closeModal()">&times;</span>
 
-        <h2 id="modalTitle"></h2>
+        <h2 id="issuemodalTitle"></h2>
 
-        <p id="modalDescription"></p>
+        <p id="issuemodalDescription"></p>
+
+        <div class="status-buttons">
+
+            <button onclick="moveIssue('TODO')">To Do</button>
+            <button onclick="moveIssue('IN_PROGRESS')">In Progress</button>
+            <button onclick="moveIssue('DONE')">Completed</button>
+
+        </div>
 
     </div>
 
