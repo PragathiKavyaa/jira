@@ -7,7 +7,7 @@ const password = document.getElementById("password").value;
 
 //fetch("http://localhost:8080/users/login",{
 
-fetch("https://jira-khp3.onrender.com/users/login",{
+fetch("/users/login",{ //for render
 
 method:"POST",
 

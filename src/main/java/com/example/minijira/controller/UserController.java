@@ -36,25 +36,32 @@ public class UserController {
 
         try {
 
-            System.out.println("ENUM VALUES:");
-            for (Role r : Role.values()) {
-                System.out.println(r);
-            }
-
             User existing = repository.findByEmail(user.getEmail());
+
+            // check user exists first
+            if (existing == null) {
+                return ResponseEntity
+                        .status(401)
+                        .body("User not found");
+            }
 
             System.out.println("User Role: " + existing.getRole());
 
-            if (existing != null && existing.getPassword().equals(user.getPassword())) {
+            if (existing.getPassword().equals(user.getPassword())) {
                 return ResponseEntity.ok(existing);
             }
 
-            return ResponseEntity.status(401).body("Invalid Credentials");
+            return ResponseEntity
+                    .status(401)
+                    .body("Invalid Credentials");
 
         } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(500).body("Server Error: " + e.getMessage());
-        }
 
+            e.printStackTrace();
+
+            return ResponseEntity
+                    .status(500)
+                    .body("Server Error: " + e.getMessage());
+        }
     }
 }
