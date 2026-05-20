@@ -15,6 +15,7 @@ com\example\minijira\repository\UserRepository.class
 com\example\minijira\controller\IssueController.class
 com\example\minijira\MiniJiraApplication.class
 com\example\minijira\service\MemberService.class
+com\example\minijira\config\CorsConfig$1.class
 com\example\minijira\controller\ProjectController.class
 com\example\minijira\repository\SubTaskRepository.class
 com\example\minijira\controller\UserController.class
@@ -24,6 +25,7 @@ com\example\minijira\service\NotificationService.class
 com\example\minijira\dto\ProjectRequest.class
 com\example\minijira\repository\MemberRepository.class
 com\example\minijira\service\SubTaskService.class
+com\example\minijira\config\CorsConfig.class
 com\example\minijira\dto\ProjectMemberDTO.class
 com\example\minijira\model\Project.class
 com\example\minijira\model\User.class
