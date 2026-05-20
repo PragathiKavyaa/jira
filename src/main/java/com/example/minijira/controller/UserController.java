@@ -36,10 +36,10 @@ public class UserController {
 
         try {
 
+            User existing = repository.findByEmail(user.getEmail());
+
             System.out.println("Received Email: [" + user.getEmail() + "]");
             System.out.println("Received Password: [" + user.getPassword() + "]");
-
-            User existing = repository.findByEmail(user.getEmail());
 
             // check user exists first
             if (existing == null) {
