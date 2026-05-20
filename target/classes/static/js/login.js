@@ -5,9 +5,11 @@ e.preventDefault(); // 🚫 stop page reload
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
 
-//fetch("http://localhost:8080/users/login",{
+
 
 fetch("https://jira-khp3.onrender.com/users/login",{ //for render
+
+    //fetch("http://localhost:8080/users/login",{
 
 method:"POST",
 
