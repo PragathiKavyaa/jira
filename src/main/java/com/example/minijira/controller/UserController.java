@@ -67,4 +67,9 @@ public class UserController {
                     .body("Server Error: " + e.getMessage());
         }
     }
+
+    @GetMapping("/all")
+    public Object allUsers() {
+        return repository.findAll();
+    }
 }
