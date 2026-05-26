@@ -17,7 +17,10 @@ let currentProjectId = null;
 
 /* LOAD PROJECTS */
 
-fetch("http://localhost:8080/projects")
+//fetch("http://localhost:8080/projects")
+
+fetch("https://jira-khp3.onrender.com/projects")
+
     .then(response => response.json())
     .then(projects => {
 
@@ -108,7 +111,10 @@ function deleteProjectById(projectId) {
 
     if (!confirm("Are you sure you want to delete this project?")) return;
 
-    fetch("http://localhost:8080/projects/" + projectId, {
+    //fetch("http://localhost:8080/projects/" + projectId, {
+    
+    fetch(`https://jira-khp3.onrender.com/projects/${projectId}`,{
+
         method: "DELETE",
         headers: {
             "role": role
@@ -140,7 +146,8 @@ function loadNotifications() {
 
     if (!email) return;
 
-    fetch("http://localhost:8080/notifications/" + email)
+    fetch("https://jira-khp3.onrender.com/notifications/" + email)
+    //fetch("http://localhost:8080/notifications/" + email)
         .then(res => res.json())
         .then(data => {
 
@@ -161,7 +168,10 @@ function handleNotificationClick(notification) {
     console.log("CLICKED:", notification);
 
     // mark as read
-    fetch(`http://localhost:8080/notifications/read/${notification.id}`, {
+
+    fetch(`https://jira-khp3.onrender.com/notifications/read/${notification.id}`, {
+
+    //fetch(`http://localhost:8080/notifications/read/${notification.id}`, {
         method: "PUT"
     })
      .then(() => {
@@ -186,7 +196,11 @@ function openNotificationsPage() {
 
 function loadProjectTable() {
 
-    fetch("http://localhost:8080/projects")
+    
+
+    fetch("https://jira-khp3.onrender.com/projects")
+
+    //fetch("http://localhost:8080/projects")
         .then(res => res.json())
         .then(projects => {
             console.log("TABLE PROJECTS:", projects);

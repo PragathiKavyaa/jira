@@ -21,7 +21,7 @@ import com.example.minijira.model.Project;
 import com.example.minijira.service.ProjectService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/projects")
 public class ProjectController {
 
