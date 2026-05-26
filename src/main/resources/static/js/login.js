@@ -4,8 +4,7 @@ e.preventDefault(); // 🚫 stop page reload
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
-
-
+const role = document.getElementById("role").value;
 
 fetch("https://jira-khp3.onrender.com/users/login",{ //for render
 
@@ -19,7 +18,8 @@ headers:{
 
 body:JSON.stringify({
 email:email,
-password:password
+password:password,
+role:role
 })
 
 })

@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
 // SHOW PROJECTS
 // ----------------------
 
-fetch("http://localhost:8080/projects")
+//fetch("http://localhost:8080/projects")
+
+fetch("https://jira-khp3.onrender.com/projects")
 .then(res => res.json())
 .then(projects => {
 
@@ -92,7 +94,9 @@ document.getElementById("completedList").appendChild(project);
 
 /* update backend */
 
-fetch("http://localhost:8080/projects/" + selectedProjectId + "/status?status=" + status,{
+//fetch("http://localhost:8080/projects/" + selectedProjectId + "/status?status=" + status,{
+
+fetch("https://jira-khp3.onrender.com/projects/" + selectedProjectId + "/status?status=" + status,{
 method:"PUT"
 })
 .then(()=>{
@@ -149,7 +153,11 @@ document.getElementById("doneList2").appendChild(issue);
 
 /* update backend */
 
-fetch("http://localhost:8080/issues/" + selectedIssueId + "/status?status=" + status,{
+
+
+//fetch("http://localhost:8080/issues/" + selectedIssueId + "/status?status=" + status,{
+
+fetch("https://jira-khp3.onrender.com/issues/" + selectedIssueId + "/status?status=" + status,{
 method:"PUT"
 });
 
@@ -185,7 +193,9 @@ function loadBoardIssues(){
 
 const projectId = localStorage.getItem("projectId");
 
-fetch("http://localhost:8080/issues")
+//fetch("http://localhost:8080/issues")
+
+fetch("https://jira-khp3.onrender.com/issues")
 .then(res=>res.json())
 .then(data=>{
 
@@ -256,7 +266,9 @@ window.location.href = "/project/project.html";
 
 function updateStage(projectId, stage){
 
-fetch("http://localhost:8080/projects/" + projectId + "/stage?stage=" + stage, {
+//fetch("http://localhost:8080/projects/" + projectId + "/stage?stage=" + stage, {
+
+    fetch("https://jira-khp3.onrender.com/projects/" + projectId + "/stage?stage=" + stage, {
     method: "PUT"
 })
 .then(() => {

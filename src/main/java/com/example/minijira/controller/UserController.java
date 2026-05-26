@@ -50,7 +50,8 @@ public class UserController {
 
             System.out.println("User Role: " + existing.getRole());
 
-            if (existing.getPassword().equals(user.getPassword())) {
+            if (existing.getPassword().equals(user.getPassword())
+                    && existing.getRole().equals(user.getRole())) {
                 return ResponseEntity.ok(existing);
             }
 

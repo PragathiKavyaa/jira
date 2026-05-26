@@ -10,7 +10,9 @@ document.getElementById("username").innerText = username;
 
 // ---------------- PROJECT STATUS CHART ----------------
 
-fetch("http://localhost:8080/projects")
+//fetch("http://localhost:8080/projects")
+
+fetch("https://jira-khp3.onrender.com/projects")
 .then(res=>res.json())
 .then(projects=>{
 
@@ -97,7 +99,9 @@ grid:{ color:"#DFE1E6" }
 
 const projectId = localStorage.getItem("projectId");
 
-fetch("http://localhost:8080/issues/project/"+projectId)
+//fetch("http://localhost:8080/issues/project/"+projectId)
+
+fetch("https://jira-khp3.onrender.com/issues/project/"+projectId)
 .then(res=>res.json())
 .then(issues=>{
 

@@ -79,13 +79,24 @@ color:#333;
 
 /* INPUT */
 
-.container input{
+/* INPUT + SELECT */
+
+.container input,
+.container select{
 width:100%;
 padding:14px;
 margin-bottom:18px;
 border:1px solid #ccc;
 border-radius:6px;
 font-size:15px;
+background:white;
+}
+
+.container input:focus,
+.container select:focus{
+outline:none;
+border-color:#1656c1;
+box-shadow:0 0 5px rgba(22,86,193,0.3);
 }
 
 /* BUTTON */
