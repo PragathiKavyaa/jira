@@ -6,9 +6,10 @@ const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
 const role = document.getElementById("role").value;
 
-console.log(email, password, role);
-
-fetch("https://jira-khp3.onrender.com/users/login",{ //for render
+console.log(email,password,role);
+console.log("FETCH URL:", "/users/login");
+fetch("/users/login",{
+//fetch("https://jira-khp3.onrender.com/users/login",{ //for render
 
     //fetch("http://localhost:8080/users/login",{
 
