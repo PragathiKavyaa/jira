@@ -24,7 +24,6 @@ com\example\minijira\dto\ProjectDTO.class
 com\example\minijira\service\NotificationService.class
 com\example\minijira\dto\ProjectRequest.class
 com\example\minijira\repository\MemberRepository.class
-com\example\minijira\controller\PageController.class
 com\example\minijira\service\SubTaskService.class
 com\example\minijira\config\CorsConfig.class
 com\example\minijira\dto\ProjectMemberDTO.class

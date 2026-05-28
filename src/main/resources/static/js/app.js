@@ -4,7 +4,9 @@ const title = document.getElementById("title").value;
 const assignee = document.getElementById("assignee").value;
 const status = document.getElementById("status").value;
 
-fetch("http://localhost:8080/issues",{
+//fetch("http://localhost:8080/issues",{
+
+    fetch("https://jira-khp3.onrender.com/issues",{
 
 method:"POST",
 
