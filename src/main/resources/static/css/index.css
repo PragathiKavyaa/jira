@@ -67,18 +67,26 @@ margin-bottom:30px;
 
 .btn{
 display:inline-block;
-padding:12px 30px;
-background:#0052CC;
+padding:14px 35px;
+background:linear-gradient(135deg,#0052CC,#00B8D9);
 color:white;
-border-radius:30px;
 text-decoration:none;
+font-size:16px;
 font-weight:bold;
-transition:0.3s;
+border-radius:40px;
+box-shadow:0 6px 18px rgba(0,82,204,0.35);
+transition:all 0.3s ease;
+letter-spacing:0.5px;
 }
 
 .btn:hover{
-transform:scale(1.08);
-background:#0747A6;
+transform:translateY(-4px) scale(1.05);
+box-shadow:0 10px 25px rgba(0,82,204,0.5);
+background:linear-gradient(135deg,#0747A6,#00D4FF);
+}
+
+.btn:active{
+transform:scale(0.98);
 }
 
 /* ABOUT */
