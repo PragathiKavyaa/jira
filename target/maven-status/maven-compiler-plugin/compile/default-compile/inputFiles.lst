@@ -2,6 +2,7 @@ D:\vts project\jira\src\main\java\com\example\minijira\repository\SubTaskReposit
 D:\vts project\jira\src\main\java\com\example\minijira\service\SubTaskService.java
 D:\vts project\jira\src\main\java\com\example\minijira\service\NotificationService.java
 D:\vts project\jira\src\main\java\com\example\minijira\model\Role.java
+D:\vts project\jira\src\main\java\com\example\minijira\controller\PageController.java
 D:\vts project\jira\src\main\java\com\example\minijira\controller\ProjectController.java
 D:\vts project\jira\src\main\java\com\example\minijira\model\Member.java
 D:\vts project\jira\src\main\java\com\example\minijira\model\User.java
