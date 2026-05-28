@@ -25,12 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
 //fetch("http://localhost:8080/projects")
 
 fetch("https://jira-khp3.onrender.com/projects")
-.then(res => res.json())
+.then(res => {
+
+    if(!res.ok){
+        throw new Error("Projects API HTTP " + res.status);
+    }
+
+    return res.json();
+})
 .then(projects => {
 
-//const list = document.getElementById("todoList");
+    console.log("Projects Loaded:", projects);
 
-projects.forEach(p => {
+    projects.forEach(p => {
 
 const li = document.createElement("li");
 
@@ -67,6 +74,9 @@ document.getElementById("completedList").appendChild(li);
 }
 
 });
+})
+.catch(err => {
+    console.error("Project Fetch Error:", err);
 
 });
 

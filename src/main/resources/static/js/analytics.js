@@ -13,41 +13,44 @@ document.getElementById("username").innerText = username;
 //fetch("http://localhost:8080/projects")
 
 fetch("https://jira-khp3.onrender.com/projects")
-.then(res=>res.json())
+.then(res=>{
+
+    if(!res.ok){
+        throw new Error("HTTP " + res.status);
+    }
+
+    return res.json();
+})
 .then(projects=>{
 
-let todo=0, progress=0, assigned=0, completed=0;
+    console.log("Projects:", projects);
 
-projects.forEach(p=>{
+    let todo=0, progress=0, assigned=0, completed=0;
 
-if(p.status==="TODO") todo++;
-else if(p.status==="IN_PROGRESS") progress++;
-else if(p.status==="ASSIGNED") assigned++;
-else if(p.status==="COMPLETED") completed++;
+    projects.forEach(p=>{
 
-});
+        if(p.status==="TODO") todo++;
+        else if(p.status==="IN_PROGRESS") progress++;
+        else if(p.status==="ASSIGNED") assigned++;
+        else if(p.status==="COMPLETED") completed++;
 
-new Chart(document.getElementById("projectChart"),{
-type:"bar",
-data:{
-labels:["To Do","In Progress","Assigned","Completed"],
-datasets:[{
-label:"Projects",
-data:[todo,progress,assigned,completed],
-backgroundColor:["#00d4ff","#36a2eb","#ffcd56","#4caf50"]
-}]
-},
-options:{
-plugins:{
-legend:{
-labels:{ color:"#172B4D" }
-}
-},
-scales:{
-x:{ ticks:{ color:"#172B4D" } },
-y:{ ticks:{ color:"#DFE1E6"  } }
-}
-}
+    });
+
+    new Chart(document.getElementById("projectChart"),{
+        type:"bar",
+        data:{
+            labels:["To Do","In Progress","Assigned","Completed"],
+            datasets:[{
+                label:"Projects",
+                data:[todo,progress,assigned,completed],
+                backgroundColor:["#00d4ff","#36a2eb","#ffcd56","#4caf50"]
+            }]
+        }
+    });
+
+})
+.catch(err=>{
+    console.error("Projects fetch error:", err);
 });
 
 
@@ -99,20 +102,41 @@ grid:{ color:"#DFE1E6" }
 
 const projectId = localStorage.getItem("projectId");
 
+console.log("PROJECT ID =", projectId);
+
+if(!projectId){
+    console.error("Project ID missing");
+    return;
+}
+
 //fetch("http://localhost:8080/issues/project/"+projectId)
 
 fetch("https://jira-khp3.onrender.com/issues/project/"+projectId)
-.then(res=>res.json())
+.then(res=>{
+
+    if(!res.ok){
+        throw new Error("HTTP " + res.status);
+    }
+
+    return res.json();
+})
 .then(issues=>{
 
-let todo=0, progress=0, done=0;
+    console.log("Issues:", issues);
 
-issues.forEach(i=>{
+    let todo=0, progress=0, done=0;
 
-if(i.status==="TODO") todo++;
-else if(i.status==="IN_PROGRESS") progress++;
-else if(i.status==="DONE") done++;
+    issues.forEach(i=>{
 
+        if(i.status==="TODO") todo++;
+        else if(i.status==="IN_PROGRESS") progress++;
+        else if(i.status==="DONE") done++;
+
+    });
+
+})
+.catch(err=>{
+    console.error("Issues fetch error:", err);
 });
 
 new Chart(document.getElementById("issueChart"),{

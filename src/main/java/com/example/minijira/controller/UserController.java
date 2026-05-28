@@ -19,6 +19,11 @@ public class UserController {
         this.repository = repository;
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
+    }
+
     @PostMapping("/signup")
     public User signup(@RequestBody User user) {
 
