@@ -19,12 +19,14 @@ function loadNotifications() {
     let url = "";
     if (role === "ADMIN" || role === "MANAGER") {
 
-        // ✅ send role parameter
-        url = "http://localhost:8080/notifications/all?role=" + role;
+        // ✅ send role parameter 
+        //url = "http://localhost:8080/notifications/all?role=" + role;
+        url = "https://jira-khp3.onrender.com/notifications/all?role=" + role;
 
     } else {
 
-        url = "http://localhost:8080/notifications/user/" + email;
+        //url = "http://localhost:8080/notifications/user/" + email;
+        url = "https://jira-khp3.onrender.com/notifications/user/" + email;
     }
 
     fetch(url)
@@ -140,7 +142,9 @@ function loadNotifications() {
 
 function acceptNotification(id) {
 
-    fetch("http://localhost:8080/notifications/accept/" + id, {
+    //fetch("http://localhost:8080/notifications/accept/" + id, {
+
+    fetch("https://jira-khp3.onrender.com/notifications/accept/" + id, {
         method: "PUT"
     })
         .then(res => {
@@ -165,7 +169,10 @@ function acceptNotification(id) {
 
 function rejectNotification(id) {
 
-    fetch("http://localhost:8080/notifications/reject/" + id, {
+    //fetch("http://localhost:8080/notifications/reject/" + id, {
+
+    fetch("https://jira-khp3.onrender.com/notifications/reject/" + id, {
+        
         method: "PUT"
     })
         .then(res => {
@@ -191,7 +198,10 @@ function rejectNotification(id) {
 
 function openProject(projectId, notificationId) {
 
-    fetch("http://localhost:8080/notifications/read/" + notificationId, {
+    //fetch("http://localhost:8080/notifications/read/" + notificationId, {
+
+    fetch("https://jira-khp3.onrender.com/notifications/read/" + notificationId, {
+        
         method: "PUT"
     })
         .then(() => {
