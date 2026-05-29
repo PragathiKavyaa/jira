@@ -112,9 +112,18 @@ button:hover{
 
 .member{
     display:flex;
-    gap:10px;
-    margin-bottom:10px;
     align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    width:100%;
+}
+
+.member input{
+    flex:1;
+}
+
+.member select{
+    width:140px;
 }
 
 .delete-btn{
@@ -124,6 +133,8 @@ button:hover{
     padding:8px 12px;
     border-radius:5px;
     cursor:pointer;
+    white-space:nowrap;
+    height:45px;
 }
 
 .delete-btn:hover{
