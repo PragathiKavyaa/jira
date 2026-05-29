@@ -115,11 +115,12 @@ button:hover{
     align-items:center;
     gap:10px;
     margin-bottom:15px;
-    width:80%;
+    width:100%;
 }
 
 .member input{
     flex:1;
+    width: 50%;
 }
 
 .member select{
