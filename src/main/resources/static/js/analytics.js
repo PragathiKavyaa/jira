@@ -1,200 +1,163 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-const username = localStorage.getItem("username");
+    const username = localStorage.getItem("username");
 
-if(username){
-document.getElementById("username").innerText = username;
-}
-
-});
-
-// ---------------- PROJECT STATUS CHART ----------------
-
-//fetch("http://localhost:8080/projects")
-
-fetch("https://jira-khp3.onrender.com/projects")
-.then(res=>{
-
-    if(!res.ok){
-        throw new Error("HTTP " + res.status);
+    if (username) {
+        document.getElementById("username").innerText = username;
     }
 
-    return res.json();
-})
-.then(projects=>{
+    // -------- PROJECT DATA --------
 
-    console.log("Projects:", projects);
+    fetch("https://jira-khp3.onrender.com/projects")
+        .then(res => {
 
-    let todo=0, progress=0, assigned=0, completed=0;
+            if (!res.ok) {
+                throw new Error("HTTP " + res.status);
+            }
 
-    projects.forEach(p=>{
+            return res.json();
+        })
 
-        if(p.status==="TODO") todo++;
-        else if(p.status==="IN_PROGRESS") progress++;
-        else if(p.status==="ASSIGNED") assigned++;
-        else if(p.status==="COMPLETED") completed++;
+        .then(projects => {
 
-    });
+            console.log("Projects:", projects);
 
-    new Chart(document.getElementById("projectChart"),{
-        type:"bar",
-        data:{
-            labels:["To Do","In Progress","Assigned","Completed"],
-            datasets:[{
-                label:"Projects",
-                data:[todo,progress,assigned,completed],
-                backgroundColor:["#00d4ff","#36a2eb","#ffcd56","#4caf50"]
-            }]
-        }
-    });
+            let todo = 0, progress = 0, assigned = 0, completed = 0;
 
-})
-.catch(err=>{
-    console.error("Projects fetch error:", err);
-});
+            projects.forEach(p => {
 
+                if (p.status === "TODO") todo++;
+                else if (p.status === "IN_PROGRESS") progress++;
+                else if (p.status === "ASSIGNED") assigned++;
+                else if (p.status === "COMPLETED") completed++;
 
-// -------- PROJECTS PER TEAM --------
+            });
 
-let teamCount={};
+            // PROJECT STATUS CHART
 
-projects.forEach(p=>{
+            new Chart(document.getElementById("projectChart"), {
+                type: "bar",
+                data: {
+                    labels: ["To Do", "In Progress", "Assigned", "Completed"],
+                    datasets: [{
+                        label: "Projects",
+                        data: [todo, progress, assigned, completed],
+                        backgroundColor: ["#00d4ff", "#36a2eb", "#ffcd56", "#4caf50"]
+                    }]
+                }
+            });
 
-if(!teamCount[p.team]){
-teamCount[p.team]=0;
-}
+            // PROJECTS PER TEAM
 
-teamCount[p.team]++;
+            let teamCount = {};
 
-});
+            projects.forEach(p => {
 
-new Chart(document.getElementById("teamChart"),{
-type:"pie",
-data:{
-labels:Object.keys(teamCount),
-datasets:[{
-data:Object.values(teamCount)
-}]
-},
-options:{
-plugins:{
-legend:{
-labels:{ color:"#172B4D" }
-}
-},
-scales:{
-x:{
-ticks:{ color:"#172B4D" },
-grid:{ color:"#DFE1E6" }
-},
-y:{
-ticks:{ color:"#172B4D" },
-grid:{ color:"#DFE1E6" }
-}
-}
-}
-});
+                let team = p.team || "No Team";
 
-});
+                if (!teamCount[team]) {
+                    teamCount[team] = 0;
+                }
+
+                teamCount[team]++;
+            });
+
+            new Chart(document.getElementById("teamChart"), {
+                type: "pie",
+                data: {
+                    labels: Object.keys(teamCount),
+                    datasets: [{
+                        data: Object.values(teamCount)
+                    }]
+                }
+            });
+
+        })
+
+        .catch(err => {
+            console.error("Projects fetch error:", err);
+        });
 
 
-// ---------------- ISSUE DATA ----------------
+    // -------- ISSUE DATA --------
 
-const projectId = localStorage.getItem("projectId");
+    const projectId = localStorage.getItem("projectId");
 
-console.log("PROJECT ID =", projectId);
-
-if(!projectId){
-    console.error("Project ID missing");
-    return;
-}
-
-//fetch("http://localhost:8080/issues/project/"+projectId)
-
-fetch("https://jira-khp3.onrender.com/issues/project/"+projectId)
-.then(res=>{
-
-    if(!res.ok){
-        throw new Error("HTTP " + res.status);
+    if (!projectId) {
+        console.error("Project ID missing");
+        return;
     }
 
-    return res.json();
-})
-.then(issues=>{
+    fetch("https://jira-khp3.onrender.com/issues/project/" + projectId)
 
-    console.log("Issues:", issues);
+        .then(res => {
 
-    let todo=0, progress=0, done=0;
+            if (!res.ok) {
+                throw new Error("HTTP " + res.status);
+            }
 
-    issues.forEach(i=>{
+            return res.json();
+        })
 
-        if(i.status==="TODO") todo++;
-        else if(i.status==="IN_PROGRESS") progress++;
-        else if(i.status==="DONE") done++;
+        .then(issues => {
 
-    });
+            console.log("Issues:", issues);
 
-})
-.catch(err=>{
-    console.error("Issues fetch error:", err);
-});
+            let todo = 0, progress = 0, done = 0;
 
-new Chart(document.getElementById("issueChart"),{
-type:"doughnut",
-data:{
-labels:["To Do","In Progress","Done"],
-datasets:[{
-data:[todo,progress,done],
-backgroundColor:["#ff6384","#36a2eb","#4caf50"]
-}]
-},
-options:{
-plugins:{
-legend:{
-labels:{ color:"#172B4D"}
-}
-}
-}
-});
+            issues.forEach(i => {
 
+                if (i.status === "TODO") todo++;
+                else if (i.status === "IN_PROGRESS") progress++;
+                else if (i.status === "DONE") done++;
 
-// -------- ISSUES PER ASSIGNEE --------
+            });
 
-let assigneeCount={};
+            // ISSUE STATUS CHART
 
-issues.forEach(i=>{
+            new Chart(document.getElementById("issueChart"), {
+                type: "doughnut",
+                data: {
+                    labels: ["To Do", "In Progress", "Done"],
+                    datasets: [{
+                        data: [todo, progress, done],
+                        backgroundColor: ["#ff6384", "#36a2eb", "#4caf50"]
+                    }]
+                }
+            });
 
-let name = i.assignee || "Unassigned";
+            // ISSUES PER ASSIGNEE
 
-if(!assigneeCount[name]){
-assigneeCount[name]=0;
-}
+            let assigneeCount = {};
 
-assigneeCount[name]++;
+            issues.forEach(i => {
 
-});
+                let name = i.assignee || "Unassigned";
 
-new Chart(document.getElementById("assigneeChart"),{
-type:"bar",
-data:{
-labels:Object.keys(assigneeCount),
-datasets:[{
-label:"Issues",
-data:Object.values(assigneeCount),
-backgroundColor:"#00d4ff"
-}]
-},
-options:{
-plugins:{
-legend:{
-labels:{ color:"#172B4D" }
-}
-},
-scales:{
-x:{ ticks:{ color:"#172B4D" } },
-y:{ ticks:{ color:"#DFE1E6" } }
-}
-}
-});
+                if (!assigneeCount[name]) {
+                    assigneeCount[name] = 0;
+                }
+
+                assigneeCount[name]++;
+
+            });
+
+            new Chart(document.getElementById("assigneeChart"), {
+                type: "bar",
+                data: {
+                    labels: Object.keys(assigneeCount),
+                    datasets: [{
+                        label: "Issues",
+                        data: Object.values(assigneeCount),
+                        backgroundColor: "#00d4ff"
+                    }]
+                }
+            });
+
+        })
+
+        .catch(err => {
+            console.error("Issues fetch error:", err);
+        });
 
 });
