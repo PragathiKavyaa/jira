@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 }); // ✅ CLOSE DOMCONTENTLOADED
 
+document.getElementById("addMemberBtn")
+.addEventListener("click", addMember);
+
 function addMember() {
     const div = document.createElement("div");
     div.className = "member";
@@ -129,7 +132,25 @@ const project = {
         alert("Project Created");
 
         document.getElementById("projectForm").reset();
-        document.getElementById("teamContainer").innerHTML = "";
+        document.getElementById("teamContainer").innerHTML =  `
+        <div class="member">
+            <input type="text" placeholder="Username" class="m_username">
+
+            <input type="email" placeholder="Email" class="m_email">
+
+            <select class="m_role">
+                <option>Developer</option>
+                <option>Tester</option>
+                <option>Manager</option>
+            </select>
+
+            <button type="button"
+                class="delete-btn"
+                onclick="removeMember(this)">
+                Delete
+            </button>
+        </div>
+    `;
     })
     .catch(err => {
         console.error(err);
