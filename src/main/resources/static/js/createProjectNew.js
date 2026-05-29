@@ -25,9 +25,7 @@ function addMember() {
     const div = document.createElement("div");
     div.className = "member";
 
-    document.getElementById("projectForm").reset();
-
-    document.getElementById("teamContainer").innerHTML = `
+    div.innerHTML = `
         <input type="text" placeholder="Username" class="m_username">
         <input type="email" placeholder="Email" class="m_email">
         <select class="m_role">
