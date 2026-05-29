@@ -109,3 +109,23 @@ button:hover{
     background:#0747A6;
     transform:scale(1.05);
 }
+
+.member{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+    align-items:center;
+}
+
+.delete-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    opacity:0.8;
+}

@@ -33,9 +33,18 @@ function addMember() {
             <option>Tester</option>
             <option>Manager</option>
         </select>
+
+        <button type="button" class="delete-btn"
+            onclick="removeMember(this)">
+            Delete
+        </button>
     `;
 
     document.getElementById("teamContainer").appendChild(div);
+}
+
+function removeMember(button) {
+    button.parentElement.remove();
 }
 
 document.getElementById("projectForm").addEventListener("submit", function (e) {
