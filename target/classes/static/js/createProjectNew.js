@@ -106,7 +106,7 @@ const project = {
     // ✅ DEBUG
     console.log("PROJECT PAYLOAD:", project);
 
-    fetch("http://localhost:8080/projects", {
+    fetch("https://jira-khp3.onrender.com/projects", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
