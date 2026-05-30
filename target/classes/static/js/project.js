@@ -7,7 +7,10 @@ const pageSize = 10;
 
 function loadProjects() {
 
-    fetch("http://localhost:8080/projects")
+    //fetch("http://localhost:8080/projects")
+
+    fetch("https://jira-khp3.onrender.com/projects")
+    
         .then(res => res.json())
         .then(projects => {
 
@@ -45,8 +48,10 @@ function loadProjectDetails(projectId) {
         tbody.innerHTML = "";
     }
 
-    fetch("http://localhost:8080/projects/" + projectId)
+    //fetch("http://localhost:8080/projects/" + projectId)
+    
 
+    fetch("https://jira-khp3.onrender.com/projects/" + projectId)
         .then(async res => {
 
             console.log("PROJECT RESPONSE =", res);
@@ -110,8 +115,10 @@ function openProject(projectId) {
         return;
     }
 
-    fetch("http://localhost:8080/projects/" + projectId)
+    //fetch("http://localhost:8080/projects/" + projectId)
 
+    
+    fetch("https://jira-khp3.onrender.com/projects/" + projectId)
         .then(res => {
 
             if (!res.ok) {
@@ -139,7 +146,10 @@ function updateProjectStatus(status) {
     document.getElementById("projectStatus").innerText = status;
     updateProgressBar(status);
 
-    fetch("http://localhost:8080/projects/" + projectId + "/status?status=" + status, {
+    //fetch("http://localhost:8080/projects/" + projectId + "/status?status=" + status, {
+
+        
+    fetch("https://jira-khp3.onrender.com/projects/" + projectId + "/status?status=" + status, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -179,7 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadIssues(projectId) {
 
-    fetch("http://localhost:8080/issues/project/" + projectId)
+    //fetch("http://localhost:8080/issues/project/" + projectId)
+
+    fetch("https://jira-khp3.onrender.com/issues/project/" + projectId)
         .then(res => res.json())
         .then(issues => {
 
@@ -259,7 +271,9 @@ function updatePaginationInfo() {
 
 function updateIssueStatus(issueId, status) {
 
-    fetch("http://localhost:8080/issues/" + issueId + "/status?status=" + status, {
+    //fetch("http://localhost:8080/issues/" + issueId + "/status?status=" + status, {
+
+    fetch("https://jira-khp3.onrender.com/issues/" + issueId + "/status?status=" + status, {
         method: "PUT"
     })
         .then(() => {
@@ -277,7 +291,10 @@ function updateIssueStatus(issueId, status) {
 
 function loadSubTasks(projectId) {
 
-    fetch("http://localhost:8080/subtasks/project/" + projectId)
+    //fetch("http://localhost:8080/subtasks/project/" + projectId)
+
+    
+    fetch("https://jira-khp3.onrender.com/subtasks/project/" + projectId)
         .then(res => res.json())
         .then(data => {
 
@@ -309,7 +326,10 @@ function addSubTask() {
         return;
     }
 
-    fetch("http://localhost:8080/subtasks", {
+    //fetch("http://localhost:8080/subtasks", {
+
+        
+        fetch("https://jira-khp3.onrender.com/subtasks", {
 
         method: "POST",
 
@@ -336,7 +356,9 @@ function addSubTask() {
 
 function deleteTask(id) {
 
-    fetch("http://localhost:8080/subtasks/" + id, {
+    //fetch("http://localhost:8080/subtasks/" + id, {
+
+    fetch("https://jira-khp3.onrender.com/subtasks/" + id, {
         method: "DELETE"
     })
         .then(() => {
@@ -347,7 +369,11 @@ function deleteTask(id) {
 
 function completeTask(id) {
 
-    fetch("http://localhost:8080/subtasks/" + id + "/complete", {
+    //fetch("http://localhost:8080/subtasks/" + id + "/complete", {
+
+        
+    fetch("https://jira-khp3.onrender.com/subtasks/" + id + "/complete", {
+
         method: "PUT"
     })
         .then(() => {
@@ -396,7 +422,9 @@ function updateStage(stage) {
 
     const projectId = localStorage.getItem("projectId");
 
-    fetch("http://localhost:8080/projects/" + projectId + "/stage?stage=" + stage, {
+    //fetch("http://localhost:8080/projects/" + projectId + "/stage?stage=" + stage, {
+        
+    fetch("https://jira-khp3.onrender.com/projects/" + projectId + "/stage?stage=" + stage, {
         method: "PUT"
     })
         .then(() => {
@@ -415,7 +443,9 @@ function updateStage(stage) {
 
 function loadTimeline(projectId) {
 
-    fetch("http://localhost:8080/issues/project/" + projectId)
+    //fetch("http://localhost:8080/issues/project/" + projectId)
+    
+    fetch("https://jira-khp3.onrender.com/issues/project/" + projectId)
         .then(res => res.json())
         .then(issues => {
 
@@ -499,7 +529,10 @@ function editIssue(issueId) {
         return;
     }
 
-    fetch("http://localhost:8080/issues/" + issueId + "/dates", {
+    //fetch("http://localhost:8080/issues/" + issueId + "/dates", {
+
+
+    fetch("https://jira-khp3.onrender.com/issues/" + issueId + "/dates", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -551,7 +584,10 @@ document.addEventListener("DOMContentLoaded", function () {
             endDate: document.getElementById("p_endDate").value
         };
 
-        fetch("http://localhost:8080/issues/" + projectId, {
+        //fetch("http://localhost:8080/issues/" + projectId, {
+
+        fetch("https://jira-khp3.onrender.com/issues/" + projectId, {    
+
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -593,7 +629,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadMembers(projectId) {
 
-    fetch("http://localhost:8080/members/project/" + projectId)
+    //fetch("http://localhost:8080/members/project/" + projectId)
+
+    
+    fetch("https://jira-khp3.onrender.com/members/project/" + projectId)
         .then(res => res.json())
         .then(members => {
 
@@ -612,7 +651,10 @@ function loadMembers(projectId) {
             }
             else {
                 // 🔥 fallback to old project.team
-                fetch("http://localhost:8080/projects/" + projectId)
+                //fetch("http://localhost:8080/projects/" + projectId)
+
+                
+                fetch("https://jira-khp3.onrender.com/projects/" + projectId)
                     .then(res => res.json())
                     .then(project => {
                         teamDiv.innerText = project.team || "No team data";
