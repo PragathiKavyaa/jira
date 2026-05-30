@@ -102,8 +102,8 @@ box-shadow:0 2px 6px rgba(0,0,0,0.08);
     background:red;
     color:white;
 
-    min-width:24px;
-    height:24px;
+    width:35px;
+    height:35px;
 
     border-radius:50%;
 
@@ -111,7 +111,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.08);
     align-items:center;
     justify-content:center;
 
-    font-size:20px;
+    font-size:30px;
     font-weight:bold;
 
     border:2px solid #0747A6;
