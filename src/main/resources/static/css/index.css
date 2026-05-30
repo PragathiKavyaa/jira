@@ -261,6 +261,11 @@ color: white;
     color: white;
 }
 
+.footer-content p > a{
+    color: white;
+    text-decoration: none;
+}
+
 .copyright{
 text-align:center;
 font-size:14px;

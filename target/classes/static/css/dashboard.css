@@ -237,6 +237,11 @@ justify-content:space-between;
 flex-wrap:wrap;
 }
 
+.footer-content p > a{
+    color: white;
+    text-decoration: none;
+}
+
 .footer-content div{
 margin-bottom:20px;
 }
