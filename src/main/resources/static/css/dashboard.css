@@ -90,7 +90,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.08);
 }
 
 .bell{
-    font-size:28px;
+    font-size:38px;
     color:white;
 }
 
@@ -102,8 +102,9 @@ box-shadow:0 2px 6px rgba(0,0,0,0.08);
     background:red;
     color:white;
 
-    width:25px;
-    height:25px;
+    min-width:24px;
+    height:24px;
+
     border-radius:50%;
 
     display:flex;
